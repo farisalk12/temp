@@ -5,5 +5,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
   </head>
-  <body></body>
+  <body>
+    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-app.js"></script>
+
+    <!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
+    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-storage.js"></script>
+
+    <!-- Add Firebase products that you want to use -->
+    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-firestore.js"></script>
+
+    <script>
+      // TODO
+      // Copy *only* your firebaseConfig from Google Firebae and add it below
+
+      const firebaseConfig = {
+        aapiKey: "AIzaSyByxwoOCyrqJ7rfW6swHkKL23mn-65KJfw",
+        authDomain: "activity424-f08ed.firebaseapp.com",
+        projectId: "activity424-f08ed",
+        storageBucket: "activity424-f08ed.firebasestorage.app",
+        messagingSenderId: "596899858883",
+        appId: "1:596899858883:web:4bc8ff041f1fa2d3319576",
+        measurementId: "G-FPPTD43JTH",
+      };
+
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+      // define authentication variable
+      let auth = firebase.auth();
+      let db = firebase.firestore();
+    </script>
+    <script src="app.js"></script>
+  </body>
 </html>

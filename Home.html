@@ -4,6 +4,16 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css"
+    />
+
+    <!-- font awesome cdn -->
+    <script
+      src="https://kit.fontawesome.com/8a80b728dc.js"
+      crossorigin="anonymous"
+    ></script>
   </head>
   <body>
     <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-app.js"></script>
@@ -37,5 +47,28 @@
       let ref = firebase.storage().ref();
     </script>
     <script src="app.js"></script>
+
+    <div>
+      <h1>1: Teams in spain:</h1>
+      <div id="spainteams"></div>
+      <h1>2:Teams in madrid</h1>
+      <div id="madrid"></div>
+      <h1>3:National teams</h1>
+      <div id="national"></div>
+      <h1>4:not in spain teams</h1>
+      <div id="nspain"></div>
+      <h1>5:not in spain nor england teams</h1>
+      <div id="nspen"></div>
+      <h1>6:in spain and >700m</h1>
+      <div id="sp700"></div>
+      <h1>
+        7: Show all teams with a number of fans in the range of 500M and 600M
+      </h1>
+      <div id="q7"></div>
+      <h1>8: Ronaldo is top scorer at</h1>
+      <div id="ron"></div>
+      <h1>9: Ronaldo and maradona and the goat are top scorers at</h1>
+      <div id="rmm"></div>
+    </div>
   </body>
 </html>

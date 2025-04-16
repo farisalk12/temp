@@ -4,18 +4,18 @@ function r_e(id) {
 
 const teams = [
   {
-    name: "Real Madrid FC",
+    name: "Real Madrid",
     city: "Madrid",
     country: "Spain",
-    topScorers: ["Ronaldo", "Benzema", "Crispo"],
-    fans_mil: 811,
+    topScorers: ["Ronaldo", "Benzema", "Hazard"],
+    fans_mil: 798,
   },
   {
-    name: "FC Barcelona",
+    name: "Barcelona",
     city: "Barcelona",
     country: "Spain",
-    topScorers: ["Messi", "Suarez", "Deco"],
-    fans_mil: 747,
+    topScorers: ["Messi", "Suarez", "Puyol"],
+    fans_mil: 738,
   },
   {
     name: "Manchester United",
@@ -191,4 +191,120 @@ db.collection("teams")
       html += `<p>${temp.name}</p>`;
     });
     r_e("rmm").innerHTML = html;
+  });
+
+// Update Real Madrid
+db.collection("teams")
+  .doc("Real Madrid")
+  .update({
+    "worldwide fans (in millions)": 811,
+    "team name": "Real Madrid FC",
+  })
+  .then(() => {
+    console.log("Real Madrid updated!");
+  })
+  .catch((error) => {
+    console.error("Error updating Real Madrid:", error);
+  });
+
+// Update Barcelona
+db.collection("teams")
+  .doc("Barcelona")
+  .update({
+    "worldwide fans (in millions)": 747,
+    "team name": "FC Barcelona",
+  })
+  .then(() => {
+    console.log("Barcelona updated!");
+  })
+  .catch((error) => {
+    console.error("Error updating Barcelona:", error);
+  });
+
+const realMadridRef = db.collection("teams").doc("Real Madrid");
+const barcelonaRef = db.collection("teams").doc("Barcelona");
+
+// Real Madrid: Remove Hazard, add Crispo
+realMadridRef
+  .update({
+    topScorers: firebase.firestore.FieldValue.arrayRemove("Hazard"),
+  })
+  .then(() => {
+    return realMadridRef.update({
+      topScorers: firebase.firestore.FieldValue.arrayUnion("Crispo"),
+    });
+  })
+  .then(() => {
+    console.log("Real Madrid top scorers updated!");
+  })
+  .catch((error) => {
+    console.error("Error updating Real Madrid scorers:", error);
+  });
+
+// Barcelona: Remove Puyol, add Deco
+barcelonaRef
+  .update({
+    topScorers: firebase.firestore.FieldValue.arrayRemove("Puyol"),
+  })
+  .then(() => {
+    return barcelonaRef.update({
+      topScorers: firebase.firestore.FieldValue.arrayUnion("Deco"),
+    });
+  })
+  .then(() => {
+    console.log("Barcelona top scorers updated!");
+  })
+  .catch((error) => {
+    console.error("Error updating Barcelona scorers:", error);
+  });
+
+// Add initial jersey colors
+realMadridRef
+  .update({
+    color: {
+      home: "White",
+      away: "Black",
+    },
+  })
+  .then(() => {
+    console.log("Real Madrid colors added!");
+  })
+  .catch((error) => {
+    console.error("Error adding Real Madrid colors:", error);
+  });
+
+barcelonaRef
+  .update({
+    color: {
+      home: "Red",
+      away: "Gold",
+    },
+  })
+  .then(() => {
+    console.log("Barcelona colors added!");
+  })
+  .catch((error) => {
+    console.error("Error adding Barcelona colors:", error);
+  });
+
+realMadridRef
+  .update({
+    "color.away": "Purple",
+  })
+  .then(() => {
+    console.log("Real Madrid away color updated!");
+  })
+  .catch((error) => {
+    console.error("Error updating Real Madrid away color:", error);
+  });
+
+barcelonaRef
+  .update({
+    "color.away": "Pink",
+  })
+  .then(() => {
+    console.log("Barcelona away color updated!");
+  })
+  .catch((error) => {
+    console.error("Error updating Barcelona away color:", error);
   });

@@ -4,18 +4,18 @@ function r_e(id) {
 
 const teams = [
   {
-    name: "Real Madrid",
+    name: "Real Madrid FC",
     city: "Madrid",
     country: "Spain",
-    topScorers: ["Ronaldo", "Benzema", "Hazard"],
-    fans_mil: 798,
+    topScorers: ["Ronaldo", "Benzema", "Crispo"],
+    fans_mil: 811,
   },
   {
-    name: "Barcelona",
+    name: "FC Barcelona",
     city: "Barcelona",
     country: "Spain",
-    topScorers: ["Messi", "Suarez", "Puyol"],
-    fans_mil: 738,
+    topScorers: ["Messi", "Suarez", "Deco"],
+    fans_mil: 747,
   },
   {
     name: "Manchester United",
